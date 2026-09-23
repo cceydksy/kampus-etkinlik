@@ -15,7 +15,7 @@ Yalnızca HTML ile kurulmuş beş sayfalık iskelet (CSS ve JavaScript yok).
 | `etkinlik-ekle.html` | Yeni etkinlik formu |
 | `etkinlik-guncelle.html` | Doldurulmuş güncelleme formu |
 
-**Canlı adres:** https://kampus-etkinlik-sigma.vercel.app/
-
+**Canlı adres:** [https://kampus-etkinlik-sigma.vercel.app/
+](https://kampus-etkinlik-sigma.vercel.app/)
 **Etiket:** `sprint-01`
 
