@@ -2,7 +2,7 @@
 
 CSS ve responsive tasarım. Sprint 1'deki HTML sayfalarına CSS eklendi; site telefonda ve masaüstünde düzgün görünüyor.
 
-**Canlı adres:** https://BURAYA-SPRINT2-ADRESI.vercel.app
+**Canlı adres:** https://kampus-etkinlik-sigma.vercel.app
 
 **Etiket:** `sprint-02`
 
