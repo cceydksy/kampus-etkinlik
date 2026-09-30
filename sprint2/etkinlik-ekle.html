@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etkinlik Ekle | Kampüs Etkinlikleri</title>
+  <link rel="stylesheet" href="css/2221032047.css">
+</head>
+<body>
+  <header>
+    <p class="site-adi">Kampüs Etkinlikleri</p>
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="etkinlikler.html">Etkinlikler</a>
+      <a href="etkinlik-ekle.html" aria-current="page">Ekle</a>
+      <a href="etkinlik-guncelle.html">Güncelle</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Etkinlik Ekle</h1>
+
+    <form>
+      <div class="alan">
+        <label for="ad">Etkinlik Adı</label>
+        <input type="text" id="ad" name="ad" required>
+      </div>
+      <div class="alan">
+        <label for="kategori">Kategori</label>
+        <select id="kategori" name="kategori" required>
+          <option value="">Seçiniz</option>
+          <option value="seminer">Seminer</option>
+          <option value="atolye">Atölye</option>
+          <option value="yarisma">Yarışma</option>
+          <option value="sosyal">Sosyal</option>
+        </select>
+      </div>
+      <div class="alan">
+        <label for="tarih">Tarih</label>
+        <input type="date" id="tarih" name="tarih" required>
+      </div>
+      <div class="alan">
+        <label for="saat">Saat</label>
+        <input type="time" id="saat" name="saat" required>
+      </div>
+      <div class="alan">
+        <label for="yer">Yer</label>
+        <input type="text" id="yer" name="yer" required>
+      </div>
+      <div class="alan">
+        <label for="aciklama">Açıklama</label>
+        <textarea id="aciklama" name="aciklama" rows="5" required></textarea>
+      </div>
+      <button type="submit">Kaydet</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Ceyda Nur Aksoy · 2221032047 · 2026</p>
+  </footer>
+</body>
+</html>
