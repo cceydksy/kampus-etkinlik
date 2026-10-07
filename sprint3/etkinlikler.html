@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etkinlikler | Kampüs Etkinlikleri</title>
+  <link rel="stylesheet" href="css/2221032047.css">
+  <script type="module" src="js/event-list.js"></script>
+</head>
+<body>
+  <header>
+    <p class="site-adi">Kampüs Etkinlikleri</p>
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="etkinlikler.html" aria-current="page">Etkinlikler</a>
+      <a href="etkinlik-ekle.html">Ekle</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Tüm Etkinlikler</h1>
+
+    <form id="filtre-formu" class="filtre">
+      <div class="alan">
+        <label for="arama">Etkinlik ara</label>
+        <input type="search" id="arama" name="arama" placeholder="Örn. atölye, kariyer">
+      </div>
+      <div class="alan">
+        <label for="kategori-filtre">Kategori</label>
+        <select id="kategori-filtre" name="kategori">
+          <option value="">Tümü</option>
+        </select>
+      </div>
+    </form>
+
+    <p id="sonuc"></p>
+
+    <section id="etkinlik-listesi" class="kartlar" aria-label="Etkinlik listesi"></section>
+  </main>
+
+  <footer>
+    <p>Ceyda Nur Aksoy · 2221032047 · 2026</p>
+  </footer>
+</body>
+</html>

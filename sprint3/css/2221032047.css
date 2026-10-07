@@ -1,0 +1,337 @@
+/* Ceyda Nur Aksoy — 2221032047 */
+:root {
+  --no: 2221032047;
+  --ton: mod(var(--no), 360);
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --font: "Palatino Linotype", serif;
+  --bosluk-m: 1rem;  --kose: 8px;
+
+  /* Ana değişkenlerden türetilenler */
+  --renk-ana-koyu: hsl(var(--ton) 65% 26%);
+  --renk-kart: hsl(var(--ton) 30% 100%);
+  --renk-metin: hsl(var(--ton) 25% 14%);
+  --renk-soluk: hsl(var(--ton) 12% 38%);
+  --renk-cizgi: hsl(var(--ton) 20% 84%);
+  --renk-hata: hsl(0 70% 42%);
+  --renk-hata-zemin: hsl(0 80% 97%);
+  --bosluk-s: 0.5rem;
+  --bosluk-l: 2rem;
+  --genislik: 64rem;
+  --dokunma: 44px;
+}
+
+/* ---------- Temel ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  background: var(--renk-zemin);
+  color: var(--renk-metin);
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: var(--renk-ana); }
+a:hover { color: var(--renk-ana-koyu); }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--renk-ana);
+  outline-offset: 2px;
+}
+
+h1, h2, h3 { line-height: 1.2; color: var(--renk-ana-koyu); }
+h1 { font-size: clamp(1.75rem, 6vw, 2.5rem); margin: var(--bosluk-m) 0; }
+h2 { font-size: 1.35rem; }
+
+/* ---------- Başlık ve menü ---------- */
+header {
+  background: var(--renk-ana);
+  color: var(--renk-kart);
+  padding: var(--bosluk-m);
+}
+
+.site-adi {
+  margin: 0 0 var(--bosluk-s);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bosluk-s);
+}
+
+nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--dokunma);
+  padding: 0 var(--bosluk-m);
+  border-radius: var(--kose);
+  color: var(--renk-kart);
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  background: var(--renk-ana-koyu);
+  color: var(--renk-kart);
+}
+
+/* ---------- Sayfa gövdesi ---------- */
+main {
+  max-width: var(--genislik);
+  margin: 0 auto;
+  padding: var(--bosluk-m);
+}
+
+.giris { font-size: 1.15rem; }
+
+footer {
+  margin-top: var(--bosluk-l);
+  padding: var(--bosluk-m);
+  border-top: 1px solid var(--renk-cizgi);
+  text-align: center;
+  color: var(--renk-soluk);
+}
+
+/* ---------- Kartlar (tablonun yerine) ---------- */
+.kartlar {
+  display: grid;
+  grid-template-columns: 1fr;          /* telefonda tek sütun */
+  gap: var(--bosluk-m);
+  margin: var(--bosluk-m) 0;
+}
+
+.kart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bosluk-s);
+  padding: var(--bosluk-m);
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+}
+
+.kart h2, .kart h3, .kart p { margin: 0; }
+.kart h2, .kart h3 { font-size: 1.2rem; }
+
+.kategori {
+  align-self: flex-start;
+  padding: 0 var(--bosluk-s);
+  border-radius: var(--kose);
+  background: var(--renk-zemin);
+  color: var(--renk-ana-koyu);
+  font-size: 0.9rem;
+}
+
+.aciklama { color: var(--renk-soluk); }
+
+.kart a {
+  margin-top: auto;                     /* linki kartın dibine iter */
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--dokunma);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* ---------- Detay sayfası ---------- */
+.detay {
+  display: grid;
+  gap: var(--bosluk-m);
+}
+
+figure { margin: 0; }
+
+figcaption {
+  margin-top: var(--bosluk-s);
+  font-size: 0.9rem;
+  color: var(--renk-soluk);
+}
+
+dl { margin: 0; }
+dt { font-weight: bold; color: var(--renk-soluk); margin-top: var(--bosluk-m); }
+dt:first-child { margin-top: 0; }
+dd { margin: 0; }
+
+.baglantilar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bosluk-m);
+}
+
+.baglantilar a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--dokunma);
+}
+
+/* ---------- Formlar ---------- */
+form {
+  display: grid;
+  gap: var(--bosluk-m);
+  max-width: 36rem;
+}
+
+.alan label {
+  display: block;                        /* label üstte */
+  margin-bottom: var(--bosluk-s);
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  min-height: var(--dokunma);
+  padding: var(--bosluk-s) var(--bosluk-m);
+  font: inherit;
+  color: var(--renk-metin);
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+}
+
+/* JavaScript'in işaretlediği hatalı alan kırmızı */
+[aria-invalid="true"] {
+  border: 2px solid var(--renk-hata);
+  background: var(--renk-hata-zemin);
+}
+
+.hata-metni {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--renk-hata);
+}
+
+.hata-metni:empty { display: none; }
+
+.form-notu { color: var(--renk-soluk); }
+
+button {
+  justify-self: start;
+  min-height: var(--dokunma);
+  padding: 0 var(--bosluk-l);
+  font: inherit;
+  font-weight: bold;
+  color: var(--renk-kart);
+  background: var(--renk-ana);
+  border: 0;
+  border-radius: var(--kose);
+  cursor: pointer;
+}
+
+button:hover { background: var(--renk-ana-koyu); }
+
+/* ---------- Butona benzeyen linkler ---------- */
+.buton {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--dokunma);
+  padding: 0 var(--bosluk-m);
+  border-radius: var(--kose);
+  background: var(--renk-ana);
+  color: var(--renk-kart);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.buton:hover { background: var(--renk-ana-koyu); color: var(--renk-kart); }
+
+/* ---------- Filtre (Sprint 3) ---------- */
+.filtre {
+  display: grid;
+  gap: var(--bosluk-m);
+  max-width: none;
+  padding: var(--bosluk-m);
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+}
+
+#sonuc {
+  font-weight: bold;
+  color: var(--renk-ana-koyu);
+}
+
+/* ---------- Mesaj kutuları ---------- */
+.hata-kutusu,
+.basari-kutusu {
+  max-width: 36rem;
+  margin: var(--bosluk-m) 0;
+  padding: var(--bosluk-m);
+  border-radius: var(--kose);
+}
+
+.hata-kutusu {
+  border: 1px solid var(--renk-hata);
+  background: var(--renk-hata-zemin);
+  color: var(--renk-hata);
+}
+
+.basari-kutusu {
+  border: 1px solid var(--renk-ana);
+  background: var(--renk-kart);
+  color: var(--renk-ana-koyu);
+}
+
+.hata-kutusu p,
+.basari-kutusu p { margin: 0; }
+
+.basari-kutusu pre {
+  margin: var(--bosluk-s) 0 0;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--renk-metin);
+}
+
+/* ---------- Detay: veriden üretilen afiş ve künye kartı ---------- */
+.afis {
+  display: grid;
+  place-content: center;
+  gap: var(--bosluk-s);
+  aspect-ratio: 3 / 2;
+  padding: var(--bosluk-l);
+  border: 3px solid var(--renk-ana);
+  outline: 1px solid var(--renk-ana);
+  outline-offset: -12px;
+  border-radius: var(--kose);
+  background: var(--renk-ana-koyu);
+  color: var(--renk-kart);
+  text-align: center;
+}
+
+.afis p { margin: 0; }
+.afis-baslik { font-size: 1.5rem; }
+.afis-bilgi { font-size: 0.95rem; }
+
+.kunye {
+  padding: var(--bosluk-m);
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+}
+
+.kunye h2 { margin-top: 0; }
+
+/* ---------- Geniş ekranlar ---------- */
+@media (min-width: 40rem) {
+  .kartlar { grid-template-columns: repeat(2, 1fr); }
+  .detay { grid-template-columns: 1fr 1fr; align-items: start; }   /* afiş solda, künye sağda */
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: var(--bosluk-s) var(--bosluk-m); }
+  dt { margin-top: 0; }
+  .filtre { grid-template-columns: 2fr 1fr; }   /* arama ve kategori yan yana */
+}
+
+@media (min-width: 60rem) {
+  main > .kartlar { grid-template-columns: repeat(3, 1fr); }      /* etkinlikler sayfası üç sütun */
+}
