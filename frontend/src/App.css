@@ -55,13 +55,21 @@ h2 { font-size: 1.35rem; }
 header {
   background: var(--renk-ana);
   color: var(--renk-kart);
-  padding: var(--bosluk-m);
+  padding: var(--bosluk-m) var(--bosluk-m) var(--bosluk-s);
 }
 
-.site-adi {
+/* Sprint 5: sayfa başlığı ve menü yeşil şeritte */
+header h1 {
   margin: 0 0 var(--bosluk-s);
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  color: var(--renk-kart);
+}
+
+header p { margin: 0; }
+
+nav {
+  padding: 0 var(--bosluk-m) var(--bosluk-m);
+  background: var(--renk-ana);
 }
 
 nav {
@@ -257,7 +265,8 @@ button:hover { background: var(--renk-ana-koyu); }
   border-radius: var(--kose);
 }
 
-#sonuc {
+#sonuc,
+.sonuc {
   font-weight: bold;
   color: var(--renk-ana-koyu);
 }
