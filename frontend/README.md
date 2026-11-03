@@ -1,24 +1,42 @@
-https://kampus-etkinlik-sigma.vercel.app
+https://ceydanuraksoy-frontend.vercel.app
 
-# Kampüs Etkinlikleri · Sprint 4
+# Kampüs Etkinlikleri · Vize Projesi
 
-Vite, TypeScript ve React. Sprint 3'teki site tek bir React uygulamasına taşındı; sayfa geçişi ve arama state ile çalışıyor.
+Fakültedeki etkinlikleri listeleyen, arayan, ekleyen, güncelleyen ve silen React + TypeScript uygulaması.
+Ceyda Nur Aksoy · 2221032047 · Web Teknolojileri ve Programlama
 
-**Etiket:** `sprint-04`
+## Kullanılan teknolojiler
 
-## Dosyalar
+Vite, React, TypeScript (strict), React Router, Context API. Veri şimdilik `src/data/events.ts` içindeki örnek kayıtlardan geliyor; backend sonraki sprintlerde eklenecek.
 
-- `package.json`: Proje adı, komutlar (dev, build) ve paket listesi.
-- `package-lock.json`: Yüklenen paketlerin tam sürümleri.
-- `node_modules/`: İndirilen paketler; GitHub'a gönderilmez.
-- `tsconfig*.json`: TypeScript ayarları.
-- `vite.config.ts`: Vite ayarları ve React eklentisi.
-- `index.html`: Uygulamanın tek HTML dosyası; içinde boş `div#root` var.
-- `src/main.tsx`: React'i başlatır ve App bileşenini root'a çizer.
-- `src/App.tsx`: Uygulamanın ana bileşeni; beş sayfanın hepsi burada.
-- `src/App.css`: Sprint 3'teki CSS (numaraya göre renk ve font).
-- `src/index.css`: Genel stil dosyası; bu sprintte boş.
-- `src/types/campus-event.ts`: Bir etkinliğin tipi ve kategori listesi.
-- `src/data/events.ts`: 6 etkinliğin tipli verisi.
-- `src/utils/filter-events.ts`: Arama, kategori filtresi ve id ile bulma fonksiyonları.
-- `public/`: Olduğu gibi kopyalanan dosyalar (afis.svg).
+## Sayfalar (10 route)
+
+| Adres | Sayfa |
+| --- | --- |
+| `/` | Ana sayfa (yaklaşan 2 etkinlik) |
+| `/etkinlikler` | Tüm etkinlikler, arama ve kategori filtresi |
+| `/etkinlikler/:id` | Etkinlik detayı, silme (onaylı) |
+| `/etkinlik-ekle` | Etkinlik ekleme formu |
+| `/etkinlikler/:id/duzenle` | Etkinlik güncelleme formu |
+| `/giris` | Giriş formu |
+| `/kayit` | Kayıt formu |
+| `/sifremi-unuttum` | Şifremi unuttum formu |
+| `/hakkinda` | Hakkında |
+| `*` | 404 sayfası |
+
+## Klasör yapısı
+
+- `src/context/`: `EventContext` (etkinlik ekle, güncelle, sil) ve `AuthContext` (giriş yapan kullanıcı)
+- `src/pages/`: 10 sayfa bileşeni
+- `src/components/layout/`: Page, Header, Navigation, Footer
+- `src/components/events/`: EventCard, EventList, EventFilter, EventDetail
+- `src/components/forms/`: EventForm (doğrulamalı)
+- `src/types/`, `src/data/`, `src/utils/`: Tipler, örnek veri, yardımcı fonksiyonlar
+
+## Çalıştırma
+
+```bash
+npm install
+npm run dev
+npm run build
+```

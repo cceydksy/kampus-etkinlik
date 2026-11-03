@@ -344,3 +344,18 @@ button:hover { background: var(--renk-ana-koyu); }
 @media (min-width: 60rem) {
   main > .kartlar { grid-template-columns: repeat(3, 1fr); }      /* etkinlikler sayfası üç sütun */
 }
+
+/* ---------- Vize: router linkleri ve silme butonu ---------- */
+nav a.active {
+  background: var(--renk-ana-koyu);
+  color: var(--renk-kart);
+}
+
+.buton-sil {
+  background: var(--renk-hata);
+}
+
+.buton-sil:hover {
+  background: var(--renk-hata);
+  filter: brightness(0.9);
+}
