@@ -1,45 +1,37 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
-import Page from "../components/layout/Page";
-import { isValidEmail } from "../utils/validation";
 
 function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
 
-  function handleSubmit(e: FormEvent) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!isValidEmail(email)) {
-      setError("Geçerli bir e-posta adresi girin.");
-      setSent(false);
-      return;
-    }
-    setError("");
-    setSent(true);
+    const found = email.includes("@") ? "" : "Geçerli bir e-posta girin.";
+    setError(found);
+    setSent(found === "");
   }
 
   return (
-    <Page title="Şifremi Unuttum" text="E-posta adresini yaz, sıfırlama bağlantısı gönderelim.">
+    <>
+      <h2 className="bolum-baslik">Şifremi Unuttum</h2>
+      <p>Kayıtlı e-posta adresinizi yazın, şifre yenileme bağlantısı gönderelim.</p>
+      {sent && <p className="mesaj mesaj-basari">Bağlantı {email} adresine gönderildi (demo).</p>}
       <form className="form" onSubmit={handleSubmit} noValidate>
         <div className="alan">
           <label htmlFor="email">E-posta</label>
           <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}
             aria-invalid={error ? true : undefined} />
-          {error && <span className="hata-metni">{error}</span>}
+          <span className="hata-metni">{error}</span>
         </div>
-        <button type="submit">Bağlantı Gönder</button>
+        <button type="submit">Bağlantı gönder</button>
       </form>
-      {sent && (
-        <div className="basari-kutusu">
-          <p>{email} adresine şifre sıfırlama bağlantısı gönderildi.</p>
-        </div>
-      )}
       <p className="baglantilar">
-        <Link to="/giris">← Girişe dön</Link>
+        <Link to="/login">← Girişe dön</Link>
       </p>
-    </Page>
+    </>
   );
 }
 

@@ -1,39 +1,20 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
-import Page from "../components/layout/Page";
+import { useParams } from "react-router-dom";
 import EventDetail from "../components/events/EventDetail";
-import { useEvents } from "../context/EventContext";
+import { useEvents } from "../context/EventsContext";
 import { findEventById } from "../utils/filter-events";
+import NotFoundPage from "./NotFoundPage";
 
 function EventDetailPage() {
   const { id } = useParams();
-  const { events, deleteEvent } = useEvents();
-  const navigate = useNavigate();
-  const event = id ? findEventById(events, id) : undefined;
-
-  function handleDelete(eventId: string) {
-    if (window.confirm("Bu etkinliği silmek istediğinize emin misiniz?")) {
-      deleteEvent(eventId);
-      navigate("/etkinlikler");
-    }
-  }
-
-  if (!event) {
-    return (
-      <Page title="Etkinlik bulunamadı">
-        <div className="hata-kutusu" role="alert">
-          <p>Bu etkinlik bulunamadı. Listeden bir etkinlik seçin.</p>
-        </div>
-        <Link className="buton" to="/etkinlikler">
-          ← Listeye dön
-        </Link>
-      </Page>
-    );
-  }
+  const { events } = useEvents();
+  const event = findEventById(events, id ?? "");
+  if (!event) return <NotFoundPage />;
 
   return (
-    <Page title={event.title}>
-      <EventDetail event={event} onDelete={handleDelete} />
-    </Page>
+    <>
+      <h2 className="bolum-baslik">{event.title}</h2>
+      <EventDetail event={event} />
+    </>
   );
 }
 

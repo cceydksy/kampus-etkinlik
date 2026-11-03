@@ -1,22 +1,34 @@
 import { useNavigate } from "react-router-dom";
-import Page from "../components/layout/Page";
 import EventForm from "../components/forms/EventForm";
-import { useEvents } from "../context/EventContext";
+import { useEvents } from "../context/EventsContext";
+import type { EventFormData } from "../types/campus-event";
+
+const emptyForm: EventFormData = {
+  title: "",
+  category: "",
+  capacity: "",
+  date: "",
+  time: "",
+  location: "",
+  description: "",
+};
 
 function AddEventPage() {
   const { addEvent } = useEvents();
   const navigate = useNavigate();
 
   return (
-    <Page title="Etkinlik Ekle">
+    <>
+      <h2 className="bolum-baslik">Etkinlik Ekle</h2>
       <EventForm
-        submitLabel="Kaydet"
-        onSubmit={(event) => {
-          addEvent(event);
-          navigate(`/etkinlikler/${event.id}`);
+        initialData={emptyForm}
+        submitText="Kaydet"
+        onSubmit={(data) => {
+          addEvent(data);
+          navigate("/admin");
         }}
       />
-    </Page>
+    </>
   );
 }
 

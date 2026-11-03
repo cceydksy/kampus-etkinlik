@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
-import Page from "../components/layout/Page";
 
 function NotFoundPage() {
   return (
-    <Page title="Sayfa bulunamadı">
+    <>
+      <h2 className="bolum-baslik">Sayfa bulunamadı</h2>
       <div className="hata-kutusu" role="alert">
-        <p>Aradığın sayfa bulunamadı (404).</p>
+        <p>Aradığınız sayfa ya da etkinlik bulunamadı.</p>
       </div>
       <Link className="buton" to="/">
         Ana sayfaya dön
       </Link>
-    </Page>
+    </>
   );
 }
 

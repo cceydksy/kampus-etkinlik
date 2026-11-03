@@ -1,39 +1,28 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
-import Page from "../components/layout/Page";
+import { useNavigate, useParams } from "react-router-dom";
 import EventForm from "../components/forms/EventForm";
-import { useEvents } from "../context/EventContext";
+import { useEvents } from "../context/EventsContext";
 import { findEventById } from "../utils/filter-events";
+import NotFoundPage from "./NotFoundPage";
 
 function EditEventPage() {
   const { id } = useParams();
   const { events, updateEvent } = useEvents();
   const navigate = useNavigate();
-  const event = id ? findEventById(events, id) : undefined;
-
-  if (!event) {
-    return (
-      <Page title="Etkinlik Güncelle">
-        <div className="hata-kutusu" role="alert">
-          <p>Güncellenecek etkinlik bulunamadı. Listeden bir etkinlik seçin.</p>
-        </div>
-        <Link className="buton" to="/etkinlikler">
-          Etkinliklere git
-        </Link>
-      </Page>
-    );
-  }
+  const event = findEventById(events, id ?? "");
+  if (!event) return <NotFoundPage />;
 
   return (
-    <Page title="Etkinlik Güncelle">
+    <>
+      <h2 className="bolum-baslik">Etkinlik Güncelle</h2>
       <EventForm
-        initialEvent={event}
-        submitLabel="Güncelle"
-        onSubmit={(updated) => {
-          updateEvent(updated);
-          navigate(`/etkinlikler/${updated.id}`);
+        initialData={{ ...event, capacity: String(event.capacity) }}
+        submitText="Güncelle"
+        onSubmit={(data) => {
+          updateEvent(event.id, data);
+          navigate("/admin");
         }}
       />
-    </Page>
+    </>
   );
 }
 

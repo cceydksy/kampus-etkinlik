@@ -4,10 +4,9 @@ import { formatDate } from "../../utils/format-date";
 
 interface EventDetailProps {
   event: CampusEvent;
-  onDelete: (id: string) => void;
 }
 
-function EventDetail({ event, onDelete }: EventDetailProps) {
+function EventDetail({ event }: EventDetailProps) {
   return (
     <article>
       <div className="detay">
@@ -19,7 +18,7 @@ function EventDetail({ event, onDelete }: EventDetailProps) {
         )}
 
         <section className="kunye">
-          <h2>Etkinlik Künyesi</h2>
+          <h3>Etkinlik Künyesi</h3>
           <dl>
             <dt>Tarih</dt>
             <dd>
@@ -37,19 +36,16 @@ function EventDetail({ event, onDelete }: EventDetailProps) {
         </section>
       </div>
 
-      <h2>Açıklama</h2>
-      <p>{event.description || "Açıklama eklenmemiş."}</p>
+      <h3>Açıklama</h3>
+      <p>{event.description}</p>
 
       <p className="baglantilar">
-        <Link className="buton" to="/etkinlikler">
+        <Link className="buton" to="/events">
           ← Listeye dön
         </Link>
-        <Link className="buton" to={`/etkinlikler/${event.id}/duzenle`}>
+        <Link className="buton" to={`/admin/${event.id}/edit`}>
           Bu etkinliği güncelle
         </Link>
-        <button type="button" className="buton-sil" onClick={() => onDelete(event.id)}>
-          Etkinliği sil
-        </button>
       </p>
     </article>
   );

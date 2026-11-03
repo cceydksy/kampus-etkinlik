@@ -1,38 +1,20 @@
-import { NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
+import { NavLink } from "react-router-dom";
 
-const menuItems = [
+const menu = [
   { to: "/", label: "Ana Sayfa" },
-  { to: "/etkinlikler", label: "Etkinlikler" },
-  { to: "/etkinlik-ekle", label: "Ekle" },
-  { to: "/hakkinda", label: "Hakkında" },
+  { to: "/events", label: "Etkinlikler" },
+  { to: "/admin", label: "Yönetim" },
+  { to: "/login", label: "Giriş" },
 ];
 
 function Navigation() {
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
-
   return (
     <nav className="menu">
-      {menuItems.map((item) => (
-        <NavLink key={item.to} to={item.to} end>
+      {menu.map((item) => (
+        <NavLink key={item.to} to={item.to} end={item.to === "/"}>
           {item.label}
         </NavLink>
       ))}
-      {user ? (
-        <a
-          href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            logout();
-            navigate("/");
-          }}
-        >
-          Çıkış ({user.name})
-        </a>
-      ) : (
-        <NavLink to="/giris">Giriş</NavLink>
-      )}
     </nav>
   );
 }

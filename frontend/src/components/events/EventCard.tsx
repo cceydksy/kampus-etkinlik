@@ -17,7 +17,7 @@ function EventCard({ event }: EventCardProps) {
       <p>Yer: {event.location}</p>
       <p>Kontenjan: {event.capacity} kişi</p>
       <p className="aciklama">{event.description}</p>
-      <Link to={`/etkinlikler/${event.id}`}>Detayları gör</Link>
+      <Link to={`/events/${event.id}`}>Detayları gör</Link>
     </article>
   );
 }

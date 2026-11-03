@@ -1,3 +1,5 @@
+https://ceydanuraksoy-frontend.vercel.app
+
 # Kampüs Etkinlikleri
 
 Kampüsteki etkinlikleri listeleyen, detaylarını gösteren ve yeni etkinlik eklemeye yarayan web uygulaması.

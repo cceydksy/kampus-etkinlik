@@ -1,8 +1,7 @@
 import { useState } from "react";
-import Page from "../components/layout/Page";
 import EventFilter from "../components/events/EventFilter";
 import EventList from "../components/events/EventList";
-import { useEvents } from "../context/EventContext";
+import { useEvents } from "../context/EventsContext";
 import { filterByCategory, searchEvents } from "../utils/filter-events";
 import type { Category } from "../types/campus-event";
 
@@ -15,7 +14,8 @@ function EventsPage() {
   const filtered = filterByCategory(searchEvents(events, searchText), category);
 
   return (
-    <Page title="Tüm Etkinlikler" text="Ekim ayında kampüste düzenlenen etkinlikler.">
+    <>
+      <h2 className="bolum-baslik">Tüm Etkinlikler</h2>
       <EventFilter
         searchText={searchText}
         category={category}
@@ -25,7 +25,7 @@ function EventsPage() {
       />
       {filtered.length > 0 && <p className="sonuc">{filtered.length} etkinlik listeleniyor.</p>}
       <EventList events={filtered} emptyText="Aramanıza uygun etkinlik bulunamadı." />
-    </Page>
+    </>
   );
 }
 

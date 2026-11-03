@@ -345,17 +345,51 @@ button:hover { background: var(--renk-ana-koyu); }
   main > .kartlar { grid-template-columns: repeat(3, 1fr); }      /* etkinlikler sayfası üç sütun */
 }
 
-/* ---------- Vize: router linkleri ve silme butonu ---------- */
+/* ---------- Sprint 6 / Vize ---------- */
 nav a.active {
   background: var(--renk-ana-koyu);
   color: var(--renk-kart);
 }
 
-.buton-sil {
-  background: var(--renk-hata);
+.bolum-baslik {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin: var(--bosluk-m) 0;
 }
 
-.buton-sil:hover {
-  background: var(--renk-hata);
-  filter: brightness(0.9);
+.mesaj {
+  max-width: 36rem;
+  padding: var(--bosluk-m);
+  border-radius: var(--kose);
+}
+
+.mesaj-basari {
+  border: 1px solid var(--renk-ana);
+  background: var(--renk-kart);
+  color: var(--renk-ana-koyu);
+}
+
+.hata-metni:empty { display: none; }
+
+/* Yönetim tablosu */
+.tablo { width: 100%; border-collapse: collapse; background: var(--renk-kart); }
+.tablo th { background: var(--renk-ana); color: #fff; text-align: left; padding: var(--bosluk-s); }
+.tablo td { padding: var(--bosluk-s); border-bottom: 1px solid var(--renk-cizgi); }
+.islemler { display: flex; gap: var(--bosluk-s); }
+.buton-sil { background: var(--renk-hata); }
+.buton-sil:hover { background: var(--renk-hata); filter: brightness(0.9); }
+
+@media (max-width: 699px) {
+  .tablo thead { display: none; }
+  .tablo tr {
+    display: block;
+    margin-bottom: var(--bosluk-m);
+    border: 1px solid var(--renk-cizgi);
+    border-radius: var(--kose);
+  }
+  .tablo td { display: block; border-bottom: 0; }
+  .tablo td.islemler { display: flex; }
+  .tablo td[data-baslik]::before {
+    content: attr(data-baslik) ": ";
+    font-weight: 700;
+  }
 }
